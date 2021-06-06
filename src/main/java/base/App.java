@@ -24,8 +24,8 @@ public class App {
     public static void main(String[] args){
         App myApp = new App();
 
-        int input1 = myApp.getInput("first");
-        int input2 = myApp.getInput("second");
+        String input1 = myApp.getInput("first");
+        String input2 = myApp.getInput("second");
 
         String generatedOutput = myApp.simpleMath(input1, input2);
         myApp.printOutput(generatedOutput);
@@ -35,7 +35,10 @@ public class App {
         System.out.print(generatedOutput);
     }
 
-    public String simpleMath(int input1, int input2){
+    public String simpleMath(String sInput1, String sInput2){
+        int input1 = Integer.parseInt(sInput1);
+        int input2 = Integer.parseInt(sInput2);
+
         String output = input1 + " + " + input2 + " = " + (input1 + input2) + "\n" +
                 input1 + " - " + input2 + " = " + (input1 - input2) + "\n" +
                 input1 + " * " + input2 + " = " + (input1 * input2) + "\n" +
@@ -43,9 +46,9 @@ public class App {
         return output;
     }
 
-    public int getInput(String placement){
+    public String getInput(String placement){
         System.out.print("What is the " + placement + " number? ");
-        return in.nextInt();
+        return in.nextLine();
     }
 
 }
